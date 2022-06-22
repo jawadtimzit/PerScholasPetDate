@@ -2,7 +2,7 @@ package com.example.petdate.model;
 
 
 
-public class AccountCredentials {   // here try using lambok when runs with normal getter setter
+public class AccountCredentials {
     private String username;
     private String password;
 

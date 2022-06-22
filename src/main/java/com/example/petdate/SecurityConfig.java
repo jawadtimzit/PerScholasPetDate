@@ -28,9 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().cors().and().authorizeRequests()
-                //All requests going to / and /home are allowed (permitted) -
-                // the user does not have to authenticate. You are using an antMatcher,
-                // which means you could have also used wildcards (*, \*\*, ?) in the string.
+                //All requests going to / and /home are allowed (permitted)
+                // I can use wildcards (*, \*\*, ?) in the string.
                 // Allow those resuests
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                 // implement this when adding customer endpoints access -- this end points are all allowed
@@ -49,12 +48,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
+
         config.setAllowedOriginPatterns(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("*"));
 
-//        // I am going to add this line below here
-  //      config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+
+
+//        
+//        config.setAllowedMethods(Arrays.asList("PUT"));
 //        //configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 //
 

@@ -38,7 +38,7 @@ public class Customer {
     String lastName;
     @NonNull
 
-    // check this if needs to be here or coming as fk from address table
+    // ----Adress and User relationship that I need to check
     @Column(length = 50, nullable = false, name ="address")
     String address;
 

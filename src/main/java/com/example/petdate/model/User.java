@@ -24,7 +24,7 @@ public class User {
     @Column(nullable = false)
     private String role;
 
-    public User() {  // fix all of this using lombook for all fields
+    public User() {  // lambock--- for all instead ---
 
     }
 
