@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // I can use wildcards (*, \*\*, ?) in the string.
                 // Allow those resuests
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
-                // implement this when adding customer endpoints access -- this end points are all allowed
+                // Customer
                 .antMatchers(HttpMethod.GET,"/api/customer/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-//        
+//
 //        config.setAllowedMethods(Arrays.asList("PUT"));
 //        //configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 //
