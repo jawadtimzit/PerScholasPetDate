@@ -10,10 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class PerScholasPetDateApplication {
+public class PerScholasPetDateApplication extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure
+			(SpringApplicationBuilder application){
+		return application.sources(PerScholasPetDateApplication.class);
+	}
 	// inject the dogRepository here to be able to save a new dog object to database
 	@Autowired
 	private AdminDogRepository adminDogRepository;
@@ -26,7 +34,7 @@ public class PerScholasPetDateApplication {
 
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		SpringApplication.run(PerScholasPetDateApplication.class, args);
 
 	}

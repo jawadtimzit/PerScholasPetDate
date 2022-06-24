@@ -34,6 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                 // Customer
                 .antMatchers(HttpMethod.GET,"/api/customer/**").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
                 // Filter for the api/login requests
@@ -50,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowedOriginPatterns(Arrays.asList("*"));
+        config.addAllowedOrigin("http://localhost:3000");
         config.setAllowedMethods(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("*"));
 
