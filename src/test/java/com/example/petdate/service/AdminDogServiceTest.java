@@ -28,11 +28,11 @@ public class AdminDogServiceTest {
     @Order(2)
     @DisplayName("Test save dog")
     public void saveDog(){
-        Dog expected = new Dog("Poodle","Teddy",10,"female","Teddypoddle@hotmail.com","https://wtop.com/wp-content/uploads/2019/01/2920895-1880x1254.jpg","This female teddy");
-        Dog actual = new Dog("Poodle","Teddy",10,"female","Teddypoddle@hotmail.com","https://wtop.com/wp-content/uploads/2019/01/2920895-1880x1254.jpg","This female teddy");
-        adminDogRepository.save(expected);
-        adminDogRepository.save(actual);
-        Assertions.assertEquals(expected,actual);
+//        Dog expected = new Dog("Poodle","Teddy",10,"female","Teddypoddle@hotmail.com","https://wtop.com/wp-content/uploads/2019/01/2920895-1880x1254.jpg","This female teddy");
+//        Dog actual = new Dog("Poodle","Teddy",10,"female","Teddypoddle@hotmail.com","https://wtop.com/wp-content/uploads/2019/01/2920895-1880x1254.jpg","This female teddy");
+//        adminDogRepository.save(expected);
+//        adminDogRepository.save(actual);
+//        Assertions.assertEquals(expected,actual);
 
 //        Dog dog = new Dog("Poodle","Teddy",10,"female","Teddypoddle@hotmail.com","https://wtop.com/wp-content/uploads/2019/01/2920895-1880x1254.jpg","This female teddy");
 //        entityManager.persistAndFlush(dog);

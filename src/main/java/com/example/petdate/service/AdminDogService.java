@@ -23,8 +23,8 @@ public class AdminDogService {
     // the dog service repo object
     AdminDogRepository adminDogRepository;
     @Autowired
-    public AdminDogService(AdminDogRepository dogRepository){
-        this.adminDogRepository = dogRepository;
+    public AdminDogService(AdminDogRepository adminDogRepository){
+        this.adminDogRepository = adminDogRepository ;
     }
 
     // get all dogs
@@ -43,7 +43,7 @@ public class AdminDogService {
     }
     // update dog
     public void updateDog(Dog dog){
-        // I will bring method controller --- implementation
+        // method controller --- implementation
     }
     // delete method to delete dog items
     public void deleteDog(Dog dog){

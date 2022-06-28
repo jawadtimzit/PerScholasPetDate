@@ -3,10 +3,8 @@ package com.example.petdate.controller;
 import com.example.petdate.model.Dog;
 import com.example.petdate.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,36 @@ public class CustomerController {
     public List<Dog> getAllDogs() {
         return customerService.findAll();
     }
+
+    // get dog by id
+    @GetMapping("/dogs/{id}")
+    public ResponseEntity<Dog> getDogById(@PathVariable int id) {
+        Dog dog = customerService.findById(id);
+        return ResponseEntity.ok(dog);
+    }
+
+    // Querries
+    // find dog by breed
+    // return dogs with breed name
+    @GetMapping("/getDogBreed")
+    public List<Object> getDogBreed()
+    {
+        return customerService.findBreed();
+    }
+
+    // return dogs by gender
+    @GetMapping("/getDogGender")
+    public List<Object> getDogGender()
+    {
+        return customerService.findGender();
+    }
+
+    // return dog city
+    @GetMapping("/getDogCity")
+    public List<Object> getDogCity()
+    {
+        return customerService.findCity();
+    }
+
 
 }

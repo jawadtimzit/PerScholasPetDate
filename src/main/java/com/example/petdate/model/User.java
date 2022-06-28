@@ -24,7 +24,7 @@ public class User {
     @Column(nullable = false)
     private String role;
 
-    public User() {  // lambock--- for all instead ---
+    public User() {
 
     }
 
