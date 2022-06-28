@@ -1,11 +1,14 @@
 package com.example.petdate.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -57,6 +60,30 @@ public class Dog {
     // I will exclude tostring to avoid infinite loop
     // between dog, admin and also dog with address
     //  @ToString.Exclude
+
+    //--------------------//
+//    @ToString.Exclude
+//    // biderectional two sides / owning and referencing side
+//    // owning side of aasociation defins mapping
+//    // reference side links to that mapping
+    @ToString.Exclude
+    @NonNull
+    // This is the owning side
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "address_fk", referencedColumnName = "addressid")
+    // create reference of address entity
+    //relationship among Address and Dog or model object wto return back Json
+    @JsonBackReference
+    private Address address;
+
+
+
+
+//------------------------------------------------------//
+
+//    @ToString.Exclude
+//    @OneToMany( mappedBy = "dog", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+//    Set<Address> addresse = new LinkedHashSet<>();
 
     // override equal and hashchode
     @Override
