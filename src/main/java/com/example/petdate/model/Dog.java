@@ -42,7 +42,7 @@ public class Dog {
     int age;
 
     @NonNull
-    @Column(length = 20, nullable = false, name="gender")
+    @Column(length = 50, nullable = false, name="gender")
     String gender;
 
     @NonNull

@@ -1,6 +1,7 @@
 package com.example.petdate;
 
 import com.example.petdate.controller.AdminDogController;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ class PerScholasPetDateApplicationTests {
 	private AdminDogController dogController;
 
 	@Test
+	@DisplayName("Instance of controller created")
 	void contextLoads() {
 		// test checks that the instance of the controller was created and
 		// injected successfully

@@ -1,5 +1,6 @@
 package com.example.petdate.controller;
 
+import com.example.petdate.data.CustomerDogRepository;
 import com.example.petdate.model.Dog;
 import com.example.petdate.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import java.util.List;
 @RequestMapping("/api/customer")
 public class CustomerController {
 
+    @Autowired
+    CustomerDogRepository customerDogRepository;
     @Autowired
     CustomerService customerService;
     @Autowired
@@ -57,6 +60,14 @@ public class CustomerController {
     {
         return customerService.findCity();
     }
+
+    // get filtered dogs --- service methode
+    @GetMapping("/getFilteredDogs")
+    // get filtered dogs
+    public List<Dog> getFilteredDogs(@RequestParam String gender, @RequestParam String breed){
+        return customerDogRepository.getFilteredDogs(gender, breed);
+    }
+
 
 
 }
