@@ -3,6 +3,7 @@ package com.example.petdate.data;
 import com.example.petdate.model.Dog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,5 +28,9 @@ public interface CustomerDogRepository extends JpaRepository<Dog,Integer> {
     @Query(nativeQuery= true, value="SELECT  a.city from address a INNER JOIN dog d ON d.id = a.address_id")
     public List<Object> getCity();
 
+
+    // call the stored procedure filtering method with its parameters
+    @Query(value = "CALL uspGetFilteredDogs(:gender,:breed);", nativeQuery = true)
+    public List<Dog> getFilteredDogs(@Param("gender") String  gender, @Param("breed") String breed);
 
 }

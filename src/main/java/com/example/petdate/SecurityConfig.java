@@ -27,12 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http.csrf().disable().cors().and().authorizeRequests()
                 //All requests going to / and /home are allowed (permitted)
                 // I can use wildcards (*, \*\*, ?) in the string.
                 // Allow those resuests
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                 // Customer
+
                 .antMatchers(HttpMethod.GET,"/api/customer/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -56,8 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 //
-//        config.setAllowedMethods(Arrays.asList("PUT"));
-//        //configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+ //     config.setAllowedMethods(Arrays.asList("PUT"));
+   //     config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 //
 
         config.setAllowCredentials(true);
