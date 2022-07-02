@@ -33,8 +33,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // I can use wildcards (*, \*\*, ?) in the string.
                 // Allow those resuests
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
-                // Customer
 
+                //----------------------
+                
+                //----------------------
+
+                // Customer
                 .antMatchers(HttpMethod.GET,"/api/customer/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -54,19 +58,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         config.setAllowedOriginPatterns(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("*"));
-
-
-
-//
- //     config.setAllowedMethods(Arrays.asList("PUT"));
-   //     config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-//
-
         config.setAllowCredentials(true);
         config.applyPermitDefaultValues();
-
         source.registerCorsConfiguration("/**", config);
         return source;
+
+
+
+        //--------------------------------------------------------------
+
+        //--------------------------------------------------------------
+        //
+        //     config.setAllowedMethods(Arrays.asList("PUT"));
+        //     config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+//
     }
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
