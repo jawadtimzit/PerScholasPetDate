@@ -46,6 +46,7 @@ Coming Soon
 Coming soon...
 
 ## Deployment:
+Coming soon...Heroku + Docker
+
+## Application Demo:
 Coming soon...
-
-
