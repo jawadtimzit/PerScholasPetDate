@@ -35,7 +35,9 @@ This application is a Pet Play Date Dog application where dog owners can access 
 ![petfundate-ER drawio](https://user-images.githubusercontent.com/56841959/177400360-8bf0b619-d9a7-423d-8554-e99470172e83.png)
 
 ## Application Architecture:
-Coming soon...
+
+![image](https://user-images.githubusercontent.com/56841959/177400693-7c607066-c5dd-4659-80a3-30ddf6c815f0.png)
+
 
 ## Security:
 Coming Soon
