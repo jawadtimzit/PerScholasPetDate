@@ -36,7 +36,7 @@ This application is a Pet Play Date Dog application where dog owners can access 
 
 ## Application Architecture:
 
-![image](https://user-images.githubusercontent.com/56841959/177400693-7c607066-c5dd-4659-80a3-30ddf6c815f0.png)
+![image](https://user-images.githubusercontent.com/56841959/177400969-3d6bf54d-ad83-4c35-b11d-7b4fa86ee927.png)
 
 
 ## Security:
