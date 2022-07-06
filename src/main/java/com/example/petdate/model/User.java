@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 
@@ -15,12 +17,20 @@ public class User {
     @Column(nullable = false, updatable = false)
     private Long id;
 
+    // username should not be null or empty
+    @NotEmpty
+    @Size(min=4, message = "username should have at least 4 characters")
     @Column(nullable = false, unique = true)
     private String username;
 
+    // password should not be null or empty
+    @NotEmpty
+    @Size(min=4, message = "password should have at least 4 characters")
     @Column(nullable = false)
     private String password;
 
+    // role should not be null or empty
+    @NotEmpty
     @Column(nullable = false)
     private String role;
 

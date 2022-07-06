@@ -6,6 +6,8 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -42,10 +44,13 @@ public class Dog {
     int age;
 
     @NonNull
+    @Size(min=4, message = "gender should have at least 4 characters")
     @Column(length = 50, nullable = false, name="gender")
     String gender;
 
     @NonNull
+    // email should be a valid email format
+    @Email
     @Column(length = 50, nullable = false, name="email")
     String email;
 
@@ -56,16 +61,6 @@ public class Dog {
     @NonNull
     @Column(length = 150, nullable = false, name="description")
     String description;
-
-    // I will exclude tostring to avoid infinite loop
-    // between dog, admin and also dog with address
-    //  @ToString.Exclude
-
-    //--------------------//
-//    @ToString.Exclude
-//    // biderectional two sides / owning and referencing side
-//    // owning side of aasociation defins mapping
-//    // reference side links to that mapping
     @ToString.Exclude
     @NonNull
     // This is the owning side
@@ -76,16 +71,6 @@ public class Dog {
     @JsonBackReference
     private Address address;
 
-
-
-
-//------------------------------------------------------//
-
-//    @ToString.Exclude
-//    @OneToMany( mappedBy = "dog", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-//    Set<Address> addresse = new LinkedHashSet<>();
-
-    // override equal and hashchode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

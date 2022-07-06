@@ -28,7 +28,7 @@ public class Toy {
     @Column(length = 50, nullable = false, name ="toyname")
     String toyname;
     @NonNull
-    @Column(length = 50, nullable = false, name ="price")
+    @Column(length = 20, nullable = false, name ="price")
     double price;
 
     @Override

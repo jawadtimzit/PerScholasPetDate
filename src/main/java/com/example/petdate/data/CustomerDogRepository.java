@@ -25,7 +25,7 @@ public interface CustomerDogRepository extends JpaRepository<Dog,Integer> {
     public List<Object> getGender();
 
     // get dog city, I will join table dog and address to get dog city
-    @Query(nativeQuery= true, value="SELECT  a.city from address a INNER JOIN dog d ON d.id = a.address_id")
+    @Query(nativeQuery= true, value="SELECT  a.city from address a INNER JOIN dog d ON d.address_fk = a.addressid")
     public List<Object> getCity();
 
 

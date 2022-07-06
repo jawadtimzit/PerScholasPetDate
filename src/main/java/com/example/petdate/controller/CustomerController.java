@@ -67,7 +67,4 @@ public class CustomerController {
     public List<Dog> getFilteredDogs(@RequestParam String gender, @RequestParam String breed){
         return customerDogRepository.getFilteredDogs(gender, breed);
     }
-
-
-
 }

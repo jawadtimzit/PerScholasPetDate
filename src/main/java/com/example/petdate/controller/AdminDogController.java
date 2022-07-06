@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,9 +32,9 @@ public class AdminDogController {
         return adminDogService.findAll();
     }
 
-    // create dog
+    // create dog with Valid to enable validation we create for dog object
     @PostMapping("/dogs")
-    public Dog createDog(@RequestBody Dog dog) {
+    public Dog createDog(@Valid @RequestBody Dog dog) {
         return adminDogService.saveDog(dog);
     }
 
