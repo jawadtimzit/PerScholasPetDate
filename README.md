@@ -40,7 +40,10 @@ This application is a Pet Play Date Dog application where dog owners can access 
 
 
 ## Security:
-Coming Soon
+* JWT: Jason Web Token 
+
+![login](https://user-images.githubusercontent.com/56841959/177439994-5c2c0b24-3965-4edc-b942-b5c9266049a2.JPG)
+                           
 
 ## Testing:
 * JUnit 
