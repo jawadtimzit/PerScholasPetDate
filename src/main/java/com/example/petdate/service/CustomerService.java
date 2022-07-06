@@ -70,4 +70,9 @@ public class CustomerService {
     public List<Toy> findAllToys(){
         return toyRepository.findAll();
     }
+    // get toy by id
+    // find dog by breed
+    public Toy findToyById(Integer id) throws NoSuchElementException{
+        return toyRepository.findById(id).orElseThrow();
+    }
 }
