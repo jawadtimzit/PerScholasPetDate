@@ -15,9 +15,12 @@ import javax.transaction.Transactional;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Transactional(rollbackOn = {DataAccessException.class})
 public class AddressService {
+    @Autowired
     AddressRepository addressRepository;
     @Autowired
     public AddressService(AddressRepository addressRepository){
         this.addressRepository = addressRepository;
     }
+
+
 }

@@ -19,14 +19,15 @@ class UserRepositoryTest {
     @Test
     @DisplayName("Test find by Username: it should check if user exist")
     void findByUsername() {
-//        String name = "testname";
-//        // given
-//        User user = new User(name, "password", "USER");
-//        // save this user
-//        userRepository.save(user);
-//        // when - check to find this username that has been just saved
-//        User actual = userRepository.findByUsername(name);
-//        // then
-//        assertThat(expected).isEqualTo("testname");
+
+        // create a user
+        User user = new User("testname","password","USER");
+        // save the user
+        userRepository.save(user);
+        //
+        String name = "testname";
+        User object = userRepository.findByUsername(name); // assign name to object
+        assertThat(object.getUsername()).isEqualTo(name); // check if object name is equal to username
     }
+
 }
