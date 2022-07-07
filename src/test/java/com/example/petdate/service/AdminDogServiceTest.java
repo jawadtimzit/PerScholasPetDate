@@ -26,6 +26,13 @@ public class AdminDogServiceTest {
     @Autowired
     private AddressRepository addressRepository;
 
+    // test that injected Compoenets are  not null
+    @DisplayName("test that injected compenents are not null")
+    @Test
+    void injectedComponentsAreNotNull() {
+        assertThat(addressRepository).isNotNull();
+        assertThat(adminDogRepository).isNotNull();
+    }
     // after each test delete everyone
     @AfterEach
     public void tearDown(){
@@ -48,12 +55,10 @@ public class AdminDogServiceTest {
     }
 
     // test get dog
-    @DisplayName("Test get Dog")
+    @DisplayName("Test get Dog By id")
     @Test
-    public void getDogTest(){
-        Dog dog = adminDogRepository.findById(1).get();
-        assertThat(dog.getId()).isEqualTo(1);
+    public void getDogById(){
+        Dog dog = adminDogRepository.findById(1).get(); // find id 1 and get it
+        assertThat(dog.getId()).isEqualTo(1); // run dog.getId() to get dog id to compare with 1
     }
-
-
 }
